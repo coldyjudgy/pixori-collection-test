@@ -1,15 +1,19 @@
 import React, { useEffect, useState ,useMemo, useRef} from 'react';
-import {TokenCluster} from '../clusters/token-cluster'
-import {useCurrentUser} from '../hooks/current-user'
+//import {TokenCluster2} from '../clusters/token-cluster2'
+//import {useCurrentUser} from '../hooks/current-user'
 import { Howl } from 'howler';
 import Bpm from '../helpers/useBPM';
 import PlayButton from '../Components/PlayButton';
 import { instruments } from '../helpers/instruments';
 import StopButton from '../Components/StopButton';
-export default () => {
+
+
+// arr1를 함수처리!!!!
+export default (arr1) => {
+    const arr2 = [arr1];
     const [isPlaying, setIsPlaying] = useState(false);
     const [squares, setSquares] = useState([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]);
-    const arr1 = ["#e74b4b","#e74b4b","#e74b4b",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+   // const arr1 = new Array;
     const [playHeadArray, setPlayHeadArray] = useState([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]);
     const togglePlay = () => {
         setIsPlaying(!isPlaying);
@@ -114,8 +118,8 @@ for(let j=0; j<31;j++)
 {
       for (let i = j+15*j ; i < 15+15*j+j ; i++) {
      {
-       if( arr1[i][0]=="#")
-         {   grid[0][i]=true;
+       if( arr2[i]=="#")
+         {   grid[i]=true;
 
         }
       }
@@ -130,6 +134,8 @@ for(let j=0; j<31;j++)
     <div>
       <PlayButton onClick={togglePlay} isPlaying={isPlaying} />
       <StopButton onClick={togglePlay} isPlaying={isPlaying} />
+
     </div>
+    
   );
 }
