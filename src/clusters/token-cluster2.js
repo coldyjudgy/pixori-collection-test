@@ -48,7 +48,7 @@ export function TokenCluster2({address}) {
                 colorArr[k] = nftInfo[k].color
               return (
                 <p>
-                  <Collection2 arr1={colorArr[k]} />
+                  NFT # {k}: {nftInfo[k].color} <Collection2 arr1={colorArr[k]} />
                 </p>
               )
             })
